@@ -153,7 +153,8 @@ max_contrib_area=0.0;
 if(yes_print_output==TRUE && current_time_step==1)
   {
   fprintf(output_fptr,
- "it      p        ep       q(it)       quz      q       sbar       qof\n");
+ "it      p        ep       q(it)       quz      q       sbar       qof       deficit_root_zone(it)\n");     /* ADDED deficit_root_zone HERE DBW 12/08/22; A LITTLE UNCLEAR ON THE RIGHT TIME INDEX (it OR in) */
+  }
   }
 
 /* BMI Adaption: Set iteration to bmi's current_time_step (standalone) or 1 (framework)
@@ -318,8 +319,8 @@ for(ir=1;ir<=num_time_delay_histo_ords;ir++)
 /* BMI Adaption: replace nstep with current_time_step */
 if(yes_print_output==TRUE && in<=current_time_step)
   { 
-  fprintf(output_fptr,"%d %6.4e %6.4e %6.4e %6.4e %6.4e %6.4e %6.4e\n",
-          current_time_step, (*p), (*ep), Q[it], (*quz), (*qb), (*sbar), (*qof));
+  fprintf(output_fptr,"%d %6.4e %6.4e %6.4e %6.4e %6.4e %6.4e %6.4e %6.4e\n",
+          current_time_step, (*p), (*ep), Q[it], (*quz), (*qb), (*sbar), (*qof), deficit_root_zone[it]);    /* ADDED deficit_root_zone HERE DBW 12/08/22; A LITTLE UNCLEAR ON THE RIGHT TIME INDEX (it OR in) */
   }
 
 /*  BMI Adaption: END SINGLE TIME STEP ITERATION 
