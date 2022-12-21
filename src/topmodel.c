@@ -155,7 +155,7 @@ if(yes_print_output==TRUE && current_time_step==1)
   fprintf(output_fptr,
  "it      p        ep       q(it)       quz      q       sbar       qof       deficit_root_zone(it)\n");     /* ADDED deficit_root_zone HERE DBW 12/08/22; A LITTLE UNCLEAR ON THE RIGHT TIME INDEX (it OR in) */
   }
-  }
+  
 
 /* BMI Adaption: Set iteration to bmi's current_time_step (standalone) or 1 (framework)
   Counter++ is handled by bmi's update()*/
